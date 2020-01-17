@@ -136,8 +136,11 @@ if __name__ == "__main__":
     mode = input("Input mode: ")
     if mode == "0":
         file = input("Input file name (or a full path): ")
-        game = LifeGame(file=file)
-        game.startLife()
+        if not file:
+            print("No file given!")
+        else:
+            game = LifeGame(file=file)
+            game.startLife()
 
     elif mode == "1":
         sizes = input("Input N and M (or press enter to generate random N and M): ")
